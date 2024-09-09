@@ -3,6 +3,7 @@ import { RatingProps } from "./Rating.props";
 import { useEffect, useState, KeyboardEvent } from "react";
 import StarIcon from "./star.svg";
 import classNames from "classnames";
+import { nanoid } from "nanoid";
 
 export const Rating = ({
     isEditable = false,
@@ -29,7 +30,10 @@ export const Rating = ({
         setRating(i);
     };
 
-    const handleSpace = (e: KeyboardEvent<HTMLSpanElement>, i: number) => {
+    const handleSpace = (
+        e: KeyboardEvent<HTMLSpanElement>,
+        i: number
+    ): void => {
         if (e.code !== "Space" || !setRating) {
             return;
         }
@@ -40,6 +44,8 @@ export const Rating = ({
         const updArray = ratingArray.map((r: JSX.Element, i: number) => {
             return (
                 <span
+                    id={nanoid()}
+                    key={nanoid()}
                     className={classNames(styles.star, {
                         [styles.filled]: i < currentRating,
                         [styles.editable]: isEditable,

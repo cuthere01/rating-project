@@ -1,14 +1,12 @@
 import { Htag, Button, P, Tag, Rating } from "@/components";
-import { Noto_Sans } from "next/font/google";
+import { withLayout } from "@/layout/Layout";
 import { useState } from "react";
 
-const font = Noto_Sans({ subsets: ["latin"] });
-
-export default function Home(): JSX.Element {
+function Home(): JSX.Element {
     const [rating, setRating] = useState<number>(2);
 
     return (
-        <div className={font.className}>
+        <>
             <Htag tag="h1">Текст</Htag>
             <Htag tag="h2">Текст</Htag>
             <Htag tag="h3">Текст</Htag>
@@ -45,6 +43,8 @@ export default function Home(): JSX.Element {
                 rating={rating}
                 setRating={setRating}
             ></Rating>
-        </div>
+        </>
     );
 }
+
+export default withLayout(Home);

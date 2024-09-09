@@ -1,0 +1,37 @@
+.footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    padding: 24px 32px;
+    background-color: var(--primary);
+    align-items: center;
+}
+.extra {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
+.extra a {
+    transition: all 0.2s ease;
+    text-decoration: none;
+}
+.extra a:hover {
+    color: var(--gray-light);
+}
+.text {
+    font-weight: 500;
+    font-size: 16px;
+    color: var(--white);
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .footer,
+    .extra {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .text {
+        text-align: center;
+    }
+}
