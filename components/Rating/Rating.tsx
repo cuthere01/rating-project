@@ -9,7 +9,6 @@ export const Rating = ({
     isEditable = false,
     rating,
     setRating,
-    className,
     ...props
 }: RatingProps): JSX.Element => {
     const [ratingArray, setRatingArray] = useState<JSX.Element[]>(
@@ -44,8 +43,7 @@ export const Rating = ({
         const updArray = ratingArray.map((r: JSX.Element, i: number) => {
             return (
                 <span
-                    id={nanoid()}
-                    key={nanoid()}
+                    key={i}
                     className={classNames(styles.star, {
                         [styles.filled]: i < currentRating,
                         [styles.editable]: isEditable,
