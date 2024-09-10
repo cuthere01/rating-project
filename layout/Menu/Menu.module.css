@@ -1,0 +1,68 @@
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.firstLvl {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+.firstLvlLabel {
+    display: flex;
+    align-items: flex-end;
+    gap: 20px;
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--gray-dark);
+    text-decoration: none;
+    margin: 0;
+}
+.firstLvlLabel svg {
+    width: 24px;
+    height: 24px;
+}
+.firstLvlActive.firstLvlLabel svg,
+.firstLvl:hover .firstLvlLabel svg {
+    fill: var(--primary);
+}
+.firstLvlActive.firstLvlLabel,
+.firstLvl:hover .firstLvlLabel {
+    color: var(--primary);
+}
+.secondLvl {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.secondLvlWrapper {
+    margin-left: 12px;
+    padding: 8px 32px;
+    border-left: 1px solid var(--gray-light);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.secondLvlLabel {
+    font-size: 12px;
+    font-weight: 300;
+    color: var(--gray-dark);
+    margin: 0;
+    text-transform: uppercase;
+}
+.secondLvlBlock {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.thirdLvl {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--gray-dark);
+    margin: 0;
+    text-decoration: none;
+}
+.thirdLvlActive,
+.thirdLvl:hover {
+    color: var(--primary);
+}

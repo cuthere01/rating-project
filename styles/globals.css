@@ -12,9 +12,10 @@
     --red: #fc836d;
     --green: #1dc37e;
     --green-light: #c8f8e4;
-    --gray-light: #ebebeb;
+    --gray-light: #dfdfdf;
     --gray: #b3c0d9;
-    --font-family: "Open Sans", sans-serif;
+    --gray-dark: #787d85;
+    --font-family: "Noto Sans", sans-serif;
 }
 
 html,
