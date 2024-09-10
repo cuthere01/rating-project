@@ -49,11 +49,16 @@
     color: var(--gray-dark);
     margin: 0;
     text-transform: uppercase;
+    cursor: pointer;
+    user-select: none;
 }
 .secondLvlBlock {
-    display: flex;
     flex-direction: column;
     gap: 10px;
+    display: none;
+}
+.secondLvlBlockOpened {
+    display: flex;
 }
 .thirdLvl {
     font-size: 14px;
