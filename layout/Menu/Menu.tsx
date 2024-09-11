@@ -42,7 +42,6 @@ export const Menu = (): JSX.Element => {
     };
 
     const buildSecondLvl = (menuItem: FirstLevelMenuItem): JSX.Element => {
-        console.log(menu);
         return (
             <div className={styles.secondLvlWrapper}>
                 {menu.map((m) => {
@@ -51,7 +50,6 @@ export const Menu = (): JSX.Element => {
                             .map((p) => p.alias)
                             .includes(router.asPath.split("/")[2])
                     ) {
-                        console.log(router.asPath.split("/")[2]);
                         m.isOpened = true;
                     }
 
