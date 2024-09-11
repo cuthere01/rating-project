@@ -8,7 +8,13 @@ import { ProductModel } from "@/interfaces/products.interface";
 import { firstLvlMenu } from "@/helpers/helpers";
 
 function Course({ menu, page, products }: CourseProps): JSX.Element {
-    return <>{products && products.length}</>;
+    return (
+        <>
+            <div>{menu && menu.length}</div>
+            <div>{page && page.alias}</div>
+            <div>{products && products.length}</div>
+        </>
+    );
 }
 
 export default withLayout(Course);

@@ -24,28 +24,25 @@ export const Menu = (): JSX.Element => {
         }
     };
 
-    const buildFirstLvl = (): JSX.Element => {
-        return (
-            <>
-                {firstLvlMenu.map((m) => (
-                    <div key={m.route} className={styles.firstLvl}>
-                        <Link
-                            href={`/${m.route}`}
-                            className={classNames(styles.firstLvlLabel, {
-                                [styles.firstLvlActive]: m.id == firstCategory,
-                            })}
-                        >
-                            {m.icon}
-                            <span>{m.name}</span>
-                        </Link>
-                        {m.id == firstCategory && buildSecondLvl(m)}
-                    </div>
-                ))}
-            </>
-        );
+    const buildFirstLvl = (): JSX.Element[] => {
+        return firstLvlMenu.map((m) => (
+            <div key={m.route} className={styles.firstLvl}>
+                <Link
+                    href={`/${m.route}`}
+                    className={classNames(styles.firstLvlLabel, {
+                        [styles.firstLvlActive]: m.id == firstCategory,
+                    })}
+                >
+                    {m.icon}
+                    <span>{m.name}</span>
+                </Link>
+                {m.id == firstCategory && buildSecondLvl(m)}
+            </div>
+        ));
     };
 
     const buildSecondLvl = (menuItem: FirstLevelMenuItem): JSX.Element => {
+        console.log(menu);
         return (
             <div className={styles.secondLvlWrapper}>
                 {menu.map((m) => {
@@ -54,6 +51,7 @@ export const Menu = (): JSX.Element => {
                             .map((p) => p.alias)
                             .includes(router.asPath.split("/")[2])
                     ) {
+                        console.log(router.asPath.split("/")[2]);
                         m.isOpened = true;
                     }
 
@@ -92,6 +90,7 @@ export const Menu = (): JSX.Element => {
 
                     return (
                         <Link
+                            key={path}
                             href={path}
                             className={classNames(styles.thirdLvl, {
                                 [styles.thirdLvlActive]: path == router.asPath,

@@ -4,8 +4,21 @@ import axios from "axios";
 import { MenuItem } from "@/interfaces/menu.interface";
 import { firstLvlMenu } from "@/helpers/helpers";
 import { ParsedUrlQuery } from "node:querystring";
+import { useRouter } from "next/router";
+import { useContext, useEffect } from "react";
+import { AppContext } from "@/context/app.context";
 
-const Type = ({ firstCategory }: TypeProps): JSX.Element => {
+const Type = ({ firstCategory, menu }: TypeProps): JSX.Element => {
+    const router = useRouter();
+    const { setMenu } = useContext(AppContext);
+
+    // Используем useEffect для обновления меню при изменении роута
+    useEffect(() => {
+        if (setMenu) {
+            setMenu(menu);
+        }
+    }, [router.asPath]);
+
     return <div>Type: {firstCategory}</div>;
 };
 
@@ -36,6 +49,12 @@ export const getStaticProps: GetStaticProps<TypeProps> = async ({
         process.env.NEXT_PUBLIC_DOMAIN + "/api/top-page/find",
         { firstCategory: firstCategoryItem.id }
     );
+    if (!menu) {
+        return {
+            notFound: true,
+        };
+    }
+
     return {
         props: {
             menu,
