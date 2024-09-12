@@ -1,0 +1,30 @@
+.advantages {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+.block {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.title {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+.title svg {
+    width: 50px;
+    height: 50px;
+    min-width: 50px;
+}
+.desc {
+    margin-left: 25px;
+    display: flex;
+    gap: 65px;
+}
+.line {
+    width: 1px;
+    background: var(--gray-light);
+    margin: 8px 0;
+}
