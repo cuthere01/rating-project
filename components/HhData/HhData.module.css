@@ -11,7 +11,7 @@
 .salary {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    padding: 20px;
+    padding: 20px 0;
     text-align: center;
     gap: 20px 0;
 }

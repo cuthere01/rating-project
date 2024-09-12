@@ -1,0 +1,22 @@
+.icon {
+    display: none;
+}
+.active {
+    font-weight: 700;
+    color: var(--primary);
+}
+.active .icon {
+    display: block;
+}
+.sort {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
+.sort span {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+    cursor: pointer;
+}
