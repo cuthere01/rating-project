@@ -6,7 +6,6 @@ import {
     Rating,
     Input,
     TextArea,
-    Search,
 } from "@/components";
 import { withLayout } from "@/layout/Layout";
 import { useState } from "react";
@@ -57,7 +56,6 @@ function Home({ menu }: HomeProps): JSX.Element {
             ></Rating>
             <Input placeholder="example" />
             <TextArea placeholder="example#1" />
-            <Search />
         </>
     );
 }

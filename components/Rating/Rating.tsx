@@ -3,7 +3,7 @@ import { RatingProps } from "./Rating.props";
 import { useEffect, useState, KeyboardEvent } from "react";
 import StarIcon from "./star.svg";
 import classNames from "classnames";
-import { nanoid } from "nanoid";
+import { nanoid, random } from "nanoid";
 
 export const Rating = ({
     isEditable = false,
@@ -69,7 +69,7 @@ export const Rating = ({
     }, [rating]);
 
     return (
-        <div className={styles.rating} {...props}>
+        <div className={styles.rating} {...props} >
             {ratingArray}
         </div>
     );

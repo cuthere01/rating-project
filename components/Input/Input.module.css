@@ -1,10 +1,11 @@
 .input {
-    padding: 7px 15px;
+    padding: 8px 15px;
     font-family: var(--font-family);
     border: none;
     outline-color: var(--primary);
     font-weight: 400;
     font-size: 16px;
+    line-height: 20px;
     color: var(--black);
     border-radius: 5px;
     box-shadow: 0 4px 4px 0 rgb(0 0 0 / 5%);
