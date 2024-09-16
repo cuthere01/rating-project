@@ -1,5 +1,3 @@
 import { HhData } from "@/interfaces/page.interface";
 
-export interface HhDataProps extends HhData {
-    trash?: number;
-}
+export type HhDataProps = HhData;

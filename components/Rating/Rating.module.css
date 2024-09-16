@@ -1,22 +1,28 @@
 .star {
     padding: 0 3px;
 }
+
 .rating {
     display: flex;
 }
+
 .filled svg {
     fill: var(--primary);
 }
+
 .editable {
     cursor: pointer;
 }
+
 .star svg {
     width: 20px;
     height: 20px;
 }
+
 .star:first-of-type {
     padding: 0 3px 0 0;
 }
+
 .star:last-of-type {
     padding: 0 0 0 3px;
 }

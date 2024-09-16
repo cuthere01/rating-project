@@ -1,10 +1,18 @@
-import { Htag, Button, P, Tag, Rating, Input } from "@/components";
+import {
+    Htag,
+    Button,
+    P,
+    Tag,
+    Rating,
+    Input,
+    TextArea,
+    Search,
+} from "@/components";
 import { withLayout } from "@/layout/Layout";
 import { useState } from "react";
 import { GetStaticProps } from "next";
 import axios from "axios";
 import { MenuItem } from "@/interfaces/menu.interface";
-import { TextArea } from "@/components/TextArea/TextArea";
 
 function Home({ menu }: HomeProps): JSX.Element {
     const [rating, setRating] = useState<number>(2);
@@ -49,6 +57,7 @@ function Home({ menu }: HomeProps): JSX.Element {
             ></Rating>
             <Input placeholder="example" />
             <TextArea placeholder="example#1" />
+            <Search />
         </>
     );
 }
