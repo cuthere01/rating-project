@@ -1,5 +1,5 @@
 .wrapper {
-    padding: 27px 0;
+    padding-bottom: 40px;
     display: flex;
     flex-direction: column;
     gap: 30px;
@@ -58,6 +58,6 @@
     font-size: 16px;
 }
 
-.seo ul {
+.seo ul, .seo ol {
     padding-left: 30px;
 }

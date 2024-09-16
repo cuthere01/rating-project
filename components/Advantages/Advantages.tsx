@@ -10,6 +10,7 @@ export const Advantages = ({ advantages }: AdvantagesProps): JSX.Element => {
         <div className={styles.advantages}>
             <Htag tag="h2">Преимущества</Htag>
             {advantages.map((a) => (
+                a.title && 
                 <div key={a._id} className={styles.block}>
                     <div className={styles.title}>
                         <Check />
