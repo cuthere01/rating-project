@@ -9,6 +9,8 @@ import { Htag } from '../Htag/Htag';
 import { declOfNum, priceRu } from '@/helpers/helpers';
 import { Divider } from '../Divider/Divider';
 import { P } from '../P/P';
+import Image from 'next/image';
+import classNames from 'classnames';
 
 export const Product = ({
     className,
@@ -18,7 +20,13 @@ export const Product = ({
     return (
         <Card className={styles.product}>
             <div className={styles.logo}>
-                <img src={product.image} alt={product.title} />
+                <Image
+                    src={product.image}
+                    alt={product.title}
+                    width={70}
+                    height={70}
+                />
+                {/* <img src={product.image} alt={product.title} /> */}
             </div>
             <Htag tag="h3" className={styles.title}>
                 {product.title}
@@ -57,9 +65,7 @@ export const Product = ({
                 {product.reviewCount}{" "}
                 {declOfNum(product.reviewCount, ["отзыв", "отзыва", "отзывов"])}
             </div>
-            <div className={styles.hr}>
-                <Divider className={styles.hr} />
-            </div>
+            <Divider className={styles.hr} />
             <P size="m" className={styles.description}>
                 {product.description}
             </P>
@@ -92,9 +98,7 @@ export const Product = ({
                     </div>
                 )}
             </div>
-            <div className={styles.hr}>
-                <Divider className={styles.hr} />
-            </div>
+            <Divider className={classNames(styles.hr, styles.hr2)} />
             <div className={styles.actions}>
                 <Button appearance="primary">Узнать подробнее</Button>
                 <Button appearance="ghost" arrow="right">
