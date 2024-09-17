@@ -6,7 +6,7 @@ import { Rating } from '../Rating/Rating';
 import { Tag } from '../Tag/Tag';
 import { Button } from '../Button/Button';
 import { Htag } from '../Htag/Htag';
-import { priceRu } from '@/helpers/helpers';
+import { declOfNum, priceRu } from '@/helpers/helpers';
 import { Divider } from '../Divider/Divider';
 import { P } from '../P/P';
 
@@ -36,8 +36,11 @@ export const Product = ({
                 <span className={styles.month}>/мес</span>
             </div>
             <div className={styles.rating}>
+                {/* нужно продумать сортировку по рейтингу с отзывов и
+                изначальному рейтингу */}
                 <Rating
-                    rating={product.reviewAvg ?? product.initialRating}
+                    // rating={product.reviewAvg ?? product.initialRating}
+                    rating={product.initialRating}
                     isEditable={false}
                 />
             </div>
@@ -51,7 +54,8 @@ export const Product = ({
             <div className={styles.priceTitle}>цена</div>
             <div className={styles.creditTitle}>кредит</div>
             <div className={styles.rateTitle}>
-                {product.reviewCount} отзывов
+                {product.reviewCount}{" "}
+                {declOfNum(product.reviewCount, ["отзыв", "отзыва", "отзывов"])}
             </div>
             <div className={styles.hr}>
                 <Divider className={styles.hr} />
@@ -59,7 +63,15 @@ export const Product = ({
             <P size="m" className={styles.description}>
                 {product.description}
             </P>
-            <div className={styles.feature}>фичи</div>
+            <div className={styles.feature}>
+                {product.characteristics.map((c) => (
+                    <div className={styles.char} key={c.name}>
+                        <span className={styles.charName}>{c.name}</span>
+                        <span className={styles.charDots}></span>
+                        <span className={styles.charValue}>{c.value}</span>
+                    </div>
+                ))}
+            </div>
             <div className={styles.advBlock}>
                 {product.advantages && (
                     <div className={styles.advantages}>

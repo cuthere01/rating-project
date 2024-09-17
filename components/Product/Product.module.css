@@ -1,6 +1,6 @@
 .product{
     display: grid;
-    grid-template-columns: [start] 70px [logoend] 30px [titlestart] calc(50% - 100px) [middle] auto [pricestart] auto [priceend] 40px [creditstart] auto [creditend] 40px [ratestart] auto [end];
+    grid-template-columns: [start] 70px [logoend] 20px [titlestart] calc(50% - 100px) [middle] 1fr [pricestart] auto [priceend] 30px [creditstart] auto [creditend] 30px [ratestart] auto [end];
     padding: 30px;
 }
 
@@ -20,13 +20,20 @@
     grid-column: titlestart / middle;
 }
 
-.title, .price, .credit{
+.title, .price, .credit, .rating{
     align-self: flex-end;
 }
 
 .price, .credit{
     font-weight: 400;
     font-size: 20px;
+}
+
+.price{
+    display: flex;
+    align-items: center;
+    gap: 0 5px;
+    flex-wrap: wrap;
 }
 
 .price, .priceTitle{
@@ -50,21 +57,27 @@
     grid-column: start / end;
 }
 
+.description{
+    margin-bottom: 15px;
+}
+
 .feature{
     grid-column: start / middle;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 }
 
 .advBlock {
     grid-column: middle / end;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
 }
 
 .month{
     font-size: 14px;
     line-height: 19px;
-}
-
-.oldPrice{
-    margin-left: 5px;
 }
 
 .tags{
@@ -103,4 +116,26 @@
 .advantages, .disadvantages{
     display: flex;
     gap: 20px;
+}
+
+.char{
+    display: grid;
+    grid-template-columns: auto minmax(30px, 1fr) auto;
+    align-items: baseline;
+    padding-right: 60px;
+    font-size: 16px;
+    line-height: 24px;
+    gap: 10px
+}
+
+.charName{
+   font-weight: 700;
+}
+
+.charValue{
+   text-align: end;
+}
+
+.charDots{
+    border-bottom: 1px dotted var(--gray-light);
 }

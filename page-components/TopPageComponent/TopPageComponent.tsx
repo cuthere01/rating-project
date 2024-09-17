@@ -21,8 +21,11 @@ export const TopPageComponent = ({
     };
 
     //исправление, потенциально ухудшающее UX
+    //Позволяет обновить продукт при изменении роута
     useEffect(() => {
         dispatchSort({ type: "RESET_PRODUCTS", payload: products });
+        //Задает сортировку по умолчанию
+        setSort(SortEnum.Rating);
     }, [products]);
 
     return (

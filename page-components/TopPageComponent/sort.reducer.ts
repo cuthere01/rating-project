@@ -17,7 +17,7 @@ export const sortReducer = (
 ): SortReducerState => {
     switch (action.type) {
         case SortEnum.Rating:
-            //нужно продумать сортировку по рейтингу с отзывов и изначальному рейтингу
+            // нужно продумать сортировку по рейтингу с отзывов и изначальному рейтингу
             // const compareRating = (a: ProductModel, b: ProductModel): number => {
             //     return 0;
             // }
