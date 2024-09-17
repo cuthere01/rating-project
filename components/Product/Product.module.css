@@ -4,6 +4,18 @@
     padding: 30px;
 }
 
+.closed{
+	max-height: 0;
+	padding: 0;
+	overflow: hidden;
+}
+
+.opened{
+	max-height: auto;
+	padding: 30px;
+	overflow: hidden;
+}
+
 .logo{
     grid-column: start / logoend;
     grid-row: 1 / span 2;
@@ -139,6 +151,10 @@
 .charDots{
     border-bottom: 1px dotted var(--gray-light);
 }
+
+/* .review{
+	margin-top: -30px;
+} */
 
 @media screen and (max-width: 1400px) {
 	.product {
