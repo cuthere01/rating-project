@@ -3,7 +3,11 @@ import type { AppProps } from "next/app";
 import Head from "next/head";
 import { Noto_Sans } from "next/font/google";
 
-const font = Noto_Sans({ subsets: ["latin"] });
+const font = Noto_Sans({
+    subsets: ["latin", "cyrillic"],
+    weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+    variable: '--font-family'
+});
 
 export default function App({ Component, pageProps }: AppProps): JSX.Element {
     return (
@@ -15,6 +19,8 @@ export default function App({ Component, pageProps }: AppProps): JSX.Element {
                     content="width=device-width, initial-scale=1"
                 />
                 <link rel="icon" href="/favicon.ico" />
+                {/* Костыль для шрифта */}
+                <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet"></link>
             </Head>
             <div className={font.className}>
                 <Component {...pageProps} />

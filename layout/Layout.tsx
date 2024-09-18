@@ -6,6 +6,7 @@ import { Footer } from "./Footer/Footer";
 import { FunctionComponent } from "react";
 import { AppContextProvider, IAppContext } from "@/context/app.context";
 
+
 const Layout = ({ children }: LayoutProps): JSX.Element => {
     return (
         <div className={styles.wrapper}>

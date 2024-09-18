@@ -2,6 +2,7 @@
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+    
 }
 
 :root {
@@ -9,6 +10,7 @@
     --white: #fff;
     --primary: #7653fc;
     --primary-hover: #6344df;
+    --primary-light: #F9F8FF;
     --red: #fc836d;
     --green: #1dc37e;
     --green-light: #c8f8e4;

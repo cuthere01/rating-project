@@ -13,4 +13,5 @@
 
 .textArea::placeholder {
     color: var(--gray);
+    font-weight: 300;
 }

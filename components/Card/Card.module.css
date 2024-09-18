@@ -4,3 +4,6 @@
     border-radius: 5px;
 }
 
+.primary{background: var(--primary-light);
+
+}

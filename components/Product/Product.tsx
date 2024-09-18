@@ -12,6 +12,8 @@ import { P } from '../P/P';
 import Image from 'next/image';
 import classNames from 'classnames';
 import { useState } from 'react';
+import { Review } from '../Review/Review';
+import { ReviewForm } from '../ReviewForm/ReviewForm';
 
 export const Product = ({
     className,
@@ -115,7 +117,7 @@ export const Product = ({
                     <Button
                         appearance="ghost"
                         arrow={isReviewOpened ? "down" : "right"}
-                        onClick={() => setIsReviewOpened(prev => !prev)}
+                        onClick={() => setIsReviewOpened((prev) => !prev)}
                     >
                         Читать отзывы
                     </Button>
@@ -128,7 +130,13 @@ export const Product = ({
                     [styles.closed]: !isReviewOpened,
                 })}
             >
-                sdfsd
+                {product.reviews.map((r) => (
+                    <>
+                        <Review key={r._id} review={r} />
+                        <Divider/>
+                    </>
+                ))}
+                <ReviewForm prodoctId={product._id}/>
             </Card>
         </div>
     );
