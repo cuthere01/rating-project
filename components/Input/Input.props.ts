@@ -1,9 +1,6 @@
 import { DetailedHTMLProps, InputHTMLAttributes } from "react";
 
-export interface InputProps
-    extends DetailedHTMLProps<
+export type InputProps = DetailedHTMLProps<
         InputHTMLAttributes<HTMLInputElement>,
         HTMLInputElement
-    > {
-    temp?: number;
-}
+    >

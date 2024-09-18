@@ -16,14 +16,13 @@ import { Review } from '../Review/Review';
 import { ReviewForm } from '../ReviewForm/ReviewForm';
 
 export const Product = ({
-    className,
     product,
     ...props
 }: ProductProps): JSX.Element => {
     const [isReviewOpened, setIsReviewOpened] = useState<boolean>(false);
 
     return (
-        <div>
+        <div {...props}>
             <Card className={styles.product}>
                 <div className={styles.logo}>
                     <Image
@@ -131,12 +130,12 @@ export const Product = ({
                 })}
             >
                 {product.reviews.map((r) => (
-                    <>
-                        <Review key={r._id} review={r} />
-                        <Divider/>
-                    </>
+                    <div key={r._id}>
+                        <Review review={r} />
+                        <Divider />
+                    </div>
                 ))}
-                <ReviewForm prodoctId={product._id}/>
+                <ReviewForm productId={product._id} />
             </Card>
         </div>
     );

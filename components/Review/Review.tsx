@@ -4,7 +4,7 @@ import { ReviewProps } from "./Review.props";
 import UserIcon from './user.svg';
 import { P } from '../P/P';
 import { format } from 'date-fns';
-import { ru } from "date-fns/locale";
+// import { ru } from "date-fns/locale";
 import { Rating } from '../Rating/Rating';
 
 export const Review = ({
