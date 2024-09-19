@@ -10,6 +10,9 @@ import { TopPageComponent } from "@/page-components";
 import { API } from '@/helpers/api';
 
 function TopPage({ firstCategory, page, products }: TopPageProps): JSX.Element {
+    if (!page || !page.title) {
+        return <div>Page not found</div>;
+    }
     return (
         <TopPageComponent
             firstCategory={firstCategory}
@@ -24,10 +27,9 @@ export default withLayout(TopPage);
 export const getStaticPaths: GetStaticPaths = async () => {
     let paths: string[] = [];
     for (const m of firstLvlMenu) {
-        const { data: menu } = await axios.post<MenuItem[]>(
-            process.env.NEXT_PUBLIC_DOMAIN + "/api/top-page/find",
-            { firstCategory: m.id }
-        );
+        const { data: menu } = await axios.post<MenuItem[]>(API.topPage.find, {
+            firstCategory: m.id,
+        });
         paths = paths.concat(
             menu.flatMap((s) => s.pages.map((p) => `/${m.route}/${p.alias}`))
         );
@@ -68,6 +70,11 @@ export const getStaticProps: GetStaticProps = async ({
         const { data: page } = await axios.get<TopPageModel>(
             API.topPage.byAlias + params.alias
         );
+        if (!page || !page.title) {
+            return {
+                notFound: true,
+            };
+        }
         const { data: products } = await axios.post<ProductModel>(
             API.product.find,
             {

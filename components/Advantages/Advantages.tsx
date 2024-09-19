@@ -1,4 +1,3 @@
-import classnames from "classnames";
 import styles from "./Advantages.module.css";
 import { AdvantagesProps } from "./Advantages.props";
 import Check from "./check.svg";
