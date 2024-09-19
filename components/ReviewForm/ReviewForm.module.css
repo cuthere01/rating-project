@@ -1,6 +1,6 @@
 .reviewForm {
 	display: grid;
-	align-items: center;
+	align-items: start;
 	grid-template-columns: [start] auto 1fr auto [end];
 	gap: 20px 30px;
 }
@@ -41,7 +41,7 @@
 
 .close {
 	position: absolute;
-	top: 20px;
+	top: 20px;	
 	right: 20px;
 	border: none;
 	background: none;
@@ -49,7 +49,7 @@
 
 .submit{
 	display: flex;
-	align-items: center;
+	align-items: baseline;
 	gap: 15px;
 }
 

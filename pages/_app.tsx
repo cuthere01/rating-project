@@ -19,7 +19,7 @@ export default function App({ Component, pageProps }: AppProps): JSX.Element {
                     content="width=device-width, initial-scale=1"
                 />
                 <link rel="icon" href="/favicon.ico" />
-                {/* Костыль для шрифта */}
+                
                 
             </Head>
             <div className={font.className}>

@@ -15,9 +15,14 @@
 }
 
 .star svg {
-    width: 20px;
-    height: 20px;
+    width: 21px;
+    height: 21px;
+    transition: fill .05s ease-in-out;
 }
+
+/* .star:not(.filled) svg{
+    transition: all .2s ease;
+} */
 
 .star:first-of-type {
     padding: 0 3px 0 0;
@@ -25,4 +30,22 @@
 
 .star:last-of-type {
     padding: 0 0 0 3px;
+}
+
+.ratingWrapper{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.errorMessage{
+    color: var(--red);
+    font-weight: 300;
+    font-size: 14px;
+    margin-bottom: -10px;
+}
+
+.error .star:not(.filled) svg {
+    stroke: var(--red);
 }

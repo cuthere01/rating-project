@@ -37,6 +37,7 @@ export const sortReducer = (
         case "RESET_PRODUCTS":
             return {
                 ...state,
+                sort: SortEnum.Rating,
                 products: action.payload,
             };
         default:

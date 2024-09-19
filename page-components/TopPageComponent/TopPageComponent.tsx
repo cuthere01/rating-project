@@ -19,8 +19,7 @@ export const TopPageComponent = ({
     const setSort = (sort: SortEnum): void => {
         dispatchSort({ type: sort });
     };
-
-    //исправление, потенциально ухудшающее UX
+ 
     //Позволяет обновить продукт при изменении роута
     useEffect(() => {
         dispatchSort({ type: "RESET_PRODUCTS", payload: products });

@@ -3,12 +3,12 @@ import { RatingProps } from "./Rating.props";
 import { useEffect, useState, KeyboardEvent, forwardRef, ForwardedRef } from "react";
 import StarIcon from "./star.svg";
 import classNames from "classnames";
-import { nanoid, random } from "nanoid";
 
 export const Rating = forwardRef(({
     isEditable = false,
     rating,
     setRating,
+    error,
     ...props
 }: RatingProps, ref: ForwardedRef<HTMLDivElement>): JSX.Element => {
     const [ratingArray, setRatingArray] = useState<JSX.Element[]>(
@@ -69,10 +69,19 @@ export const Rating = forwardRef(({
     }, [rating]);
 
     return (
-        <div className={styles.rating} ref={ref} {...props}>
-            {ratingArray.map((r, i) => (
-                <span key={i}>{r}</span>
-            ))}
+        <div
+            className={classNames(styles.ratingWrapper, {
+                [styles.error]: error,
+            })}
+        >
+            <div className={styles.rating} ref={ref} {...props}>
+                {ratingArray.map((r, i) => (
+                    <span key={i}>{r}</span>
+                ))}
+            </div>
+            {error && (
+                <span className={styles.errorMessage}>{error.message}</span>
+            )}
         </div>
     );
 });
