@@ -35,16 +35,13 @@
 	background: var(--red-light);
 }
 
-.successTitle {
-	font-weight: bold;
-}
-
 .close {
 	position: absolute;
 	top: 20px;	
 	right: 20px;
 	border: none;
 	background: none;
+	cursor: pointer;
 }
 
 .submit{
