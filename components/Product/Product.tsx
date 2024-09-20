@@ -16,7 +16,7 @@ import { Review } from '../Review/Review';
 import { ReviewForm } from '../ReviewForm/ReviewForm';
 import { motion } from 'framer-motion';
 
-export const Product = motion(forwardRef(({
+export const Product = motion.create(forwardRef(({
     product,
     className,
     ...props

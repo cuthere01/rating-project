@@ -25,7 +25,6 @@ export const TopPageComponent = ({
         dispatchSort({ type: "RESET_PRODUCTS", payload: products });
         //Задает сортировку по умолчанию
         //setSort(SortEnum.Initial);
-        console.log(products);
     }, [products]);
 
     return (
