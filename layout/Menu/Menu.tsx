@@ -6,10 +6,34 @@ import classNames from "classnames";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { firstLvlMenu } from "@/helpers/helpers";
+import { motion } from 'framer-motion';
 
 export const Menu = (): JSX.Element => {
     const { menu, setMenu, firstCategory } = useContext(AppContext);
     const router = useRouter();
+
+    const variants = {
+        visible: {
+            marginBottom: 10,
+            transition: {
+                staggerChildren: 0.025,
+            },
+        },
+        hidden: {
+            marginBottom: 0,
+        },
+    };
+
+    const variantsChildren = {
+        visible: {
+            opacity: 1,
+            height: 'auto',
+        },
+        hidden: {
+            opacity: 0,
+            height: 0
+        },
+    };
 
     const openSecondLevel = (secondCategory: string): void => {
         if (setMenu) {
@@ -66,13 +90,15 @@ export const Menu = (): JSX.Element => {
                             >
                                 {m._id.secondCategory}
                             </div>
-                            <div
-                                className={classNames(styles.secondLvlBlock, {
-                                    [styles.secondLvlBlockOpened]: m.isOpened,
-                                })}
+                            <motion.div
+                                className={classNames(styles.secondLvlBlock)}
+                                layout
+                                variants={variants}
+                                initial={m.isOpened ? "visible" : "hidden"}
+                                animate={m.isOpened ? "visible" : "hidden"}
                             >
                                 {buildThirdLvl(m.pages, menuItem.route)}
-                            </div>
+                            </motion.div>
                         </div>
                     );
                 })}
@@ -80,26 +106,23 @@ export const Menu = (): JSX.Element => {
         );
     };
 
-    const buildThirdLvl = (pages: PageItem[], route: string): JSX.Element => {
-        return (
-            <>
-                {pages.map((p) => {
-                    const path = `/${route}/${p.alias}`;
+    const buildThirdLvl = (pages: PageItem[], route: string): JSX.Element[] => {
+        return pages.map((p) => {
+            const path = `/${route}/${p.alias}`;
 
-                    return (
-                        <Link
-                            key={path}
-                            href={path}
-                            className={classNames(styles.thirdLvl, {
-                                [styles.thirdLvlActive]: path == router.asPath,
-                            })}
-                        >
-                            {p.category}
-                        </Link>
-                    );
-                })}
-            </>
-        );
+            return (
+                <motion.div key={p._id} variants={variantsChildren}>
+                    <Link
+                        href={path}
+                        className={classNames(styles.thirdLvl, {
+                            [styles.thirdLvlActive]: path == router.asPath,
+                        })}
+                    >
+                        {p.category}
+                    </Link>
+                </motion.div>
+            );
+        });
     };
 
     return <div className={styles.menu}>{buildFirstLvl()}</div>;

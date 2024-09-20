@@ -61,6 +61,15 @@
     grid-column: ratestart / end;
 }
 
+.rateTitle a{
+	color: var(--primary);
+	text-decoration: none;
+}
+
+.rateTitle a:hover{
+	text-decoration: underline;
+}
+
 .priceTitle, .creditTitle, .rateTitle{
     font-weight: 300;
     font-size: 14px;

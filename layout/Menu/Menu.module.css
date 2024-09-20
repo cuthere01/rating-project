@@ -44,11 +44,12 @@
 
 .secondLvlWrapper {
     margin-left: 12px;
-    padding: 8px 32px;
+    padding: 8px 0 8px 32px;
     border-left: 1px solid var(--gray-light);
     display: flex;
     flex-direction: column;
-    gap: 10px;
+
+    /* gap: 10px; */
 }
 
 .secondLvlLabel {
@@ -62,14 +63,7 @@
 }
 
 .secondLvlBlock {
-    flex-direction: column;
-    gap: 10px;
-    display: none;
-    margin-bottom: 10px;
-}
-
-.secondLvlBlockOpened {
-    display: flex;
+    overflow: hidden;
 }
 
 .thirdLvl {
@@ -78,6 +72,8 @@
     color: var(--gray-dark);
     margin: 0;
     text-decoration: none;
+    display: block;
+    padding-bottom: 10px;
 }
 
 .thirdLvlActive,

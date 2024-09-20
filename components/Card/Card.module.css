@@ -2,8 +2,17 @@
     box-shadow: 0 4px 4px 0 rgb(0 0 0 / 5%);
     background: var(--white);
     border-radius: 5px;
+    position: relative;
 }
 
-.primary{background: var(--primary-light);
+.primary{
+    background: var(--primary-light);
+}
 
+.anchor{
+    position: absolute;
+    top: -60px;
+    width: 10px;
+    height: 10px;
+    pointer-events: none;
 }
