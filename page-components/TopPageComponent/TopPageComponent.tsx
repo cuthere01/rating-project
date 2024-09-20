@@ -13,7 +13,7 @@ export const TopPageComponent = ({
 }: TopPageComponentProps): JSX.Element => {
     const [{ products: sortedProducts, sort }, dispatchSort] = useReducer(
         sortReducer,
-        { products, sort: SortEnum.Rating }
+        { products, sort: SortEnum.Initial }
     );
 
     const setSort = (sort: SortEnum): void => {
@@ -24,7 +24,8 @@ export const TopPageComponent = ({
     useEffect(() => {
         dispatchSort({ type: "RESET_PRODUCTS", payload: products });
         //Задает сортировку по умолчанию
-        setSort(SortEnum.Rating);
+        //setSort(SortEnum.Initial);
+        console.log(products);
     }, [products]);
 
     return (
@@ -41,7 +42,7 @@ export const TopPageComponent = ({
             </div>
             {sortedProducts &&
                 sortedProducts.map(
-                    (p) => p.title && <Product key={p._id} product={p} />
+                    (p) => p.title && <Product layout key={p._id} product={p} />
                 )}
             <div className={styles.hhTitle}>
                 <Htag tag="h2">Вакансии – {page.category}</Htag>

@@ -12,6 +12,15 @@ export const Sort = ({
     return (
         <div className={classnames(styles.sort, className)} {...props}>
             <span
+                onClick={() => setSort(SortEnum.Initial)}
+                className={classnames({
+                    [styles.active]: sort == SortEnum.Initial,
+                })}
+            >
+                <SortIcon className={styles.icon} />
+                По умолчанию
+            </span>
+            <span
                 onClick={() => setSort(SortEnum.Rating)}
                 className={classnames({
                     [styles.active]: sort == SortEnum.Rating,

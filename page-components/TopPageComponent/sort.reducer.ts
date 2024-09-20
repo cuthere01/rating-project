@@ -2,6 +2,7 @@ import { SortEnum } from "@/components/Sort/Sort.props";
 import { ProductModel } from "@/interfaces/products.interface";
 
 export type SortActions =
+    | { type: SortEnum.Initial }
     | { type: SortEnum.Price }
     | { type: SortEnum.Rating }
     | { type: "RESET_PRODUCTS"; payload: ProductModel[] };
@@ -16,6 +17,13 @@ export const sortReducer = (
     action: SortActions
 ): SortReducerState => {
     switch (action.type) {
+        case SortEnum.Initial:
+            return {
+                sort: SortEnum.Initial,
+                products: state.products.sort((a, b) =>
+                    a._id > b._id ? 1 : -1
+                ),
+            };
         case SortEnum.Rating:
             // нужно продумать сортировку по рейтингу с отзывов и изначальному рейтингу
             // const compareRating = (a: ProductModel, b: ProductModel): number => {
@@ -37,7 +45,7 @@ export const sortReducer = (
         case "RESET_PRODUCTS":
             return {
                 ...state,
-                sort: SortEnum.Rating,
+                sort: SortEnum.Initial,
                 products: action.payload,
             };
         default:

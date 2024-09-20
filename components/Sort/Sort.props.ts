@@ -7,6 +7,7 @@ export interface SortProps
 }
 
 export enum SortEnum {
+    Initial,
     Rating,
     Price,
 }
