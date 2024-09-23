@@ -8,6 +8,7 @@
 :root {
     --black: #3b434e;
     --white: #fff;
+    --white-darken: #f5f6f8;
     --primary: #7653fc;
     --primary-hover: #6344df;
     --primary-light: #F9F8FF;
@@ -26,20 +27,22 @@ body {
     overflow-x: hidden;
     font-family: var(--font-family);
     color: var(--black);
-    background: #f5f6f8;
+    background: var(--white-darken);
 }
 
-*::-webkit-scrollbar {
-  width: 10px;
-  background-color: var(--gray-light); 
-}
+@media (min-width: 768px){
+  *::-webkit-scrollbar {
+    width: 10px;
+    background-color: var(--gray-light); 
+  }
 
-*::-webkit-scrollbar-thumb {
-  background-color: var(--primary);
-  cursor: pointer;
-}
+  *::-webkit-scrollbar-thumb {
+    background-color: var(--primary);
+    cursor: pointer;
+  }
 
-*::-webkit-scrollbar-track {
-  box-shadow: 0 4px 4px 0 rgb(0 0 0 / 5%);
-  background-color: var(--gray-light); 
+  *::-webkit-scrollbar-track {
+    box-shadow: 0 4px 4px 0 rgb(0 0 0 / 5%);
+    background-color: var(--gray-light); 
+  }
 }
