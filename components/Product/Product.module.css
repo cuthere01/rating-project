@@ -24,6 +24,13 @@
 	overflow: hidden;
 }
 
+.reviewsWrapper{
+	z-index: 10;
+    position: relative;
+    overflow: hidden;
+    margin-top: -10px;
+}
+
 .logo{
     grid-column: start / logoend;
     grid-row: 1 / span 2;
@@ -132,7 +139,7 @@
     width: 3px;
     min-width: 3px;
     border-radius: 2px;
-    background-color: var(--green);
+    background-color: #1DC37E;
 }
 
 .disadvantages span{

@@ -73,7 +73,9 @@
     margin: 0;
     text-decoration: none;
     display: block;
-    padding-bottom: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    outline-offset: -1px;
 }
 
 .thirdLvlActive,

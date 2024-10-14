@@ -151,6 +151,7 @@ export const Product = motion.create(forwardRef(({
                 variants={variantsReview}
                 initial={"hidden"}
                 ref={reviewRef}
+                className={styles.reviewsWrapper}
             >
                 <Card
                     color="primary"

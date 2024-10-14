@@ -2,6 +2,7 @@ import styles from "./Button.module.css";
 import { ButtonProps } from "./Button.props";
 import classnames from "classnames";
 import ArrowIcon from "./arrow.svg";
+import { motion } from 'framer-motion';
 
 export const Button = ({
     appearance,
@@ -11,7 +12,7 @@ export const Button = ({
     ...props
 }: ButtonProps): JSX.Element => {
     return (
-        <button
+        <motion.button
             className={classnames(styles.button, className, {
                 [styles.primary]: appearance === "primary",
                 [styles.ghost]: appearance === "ghost",
@@ -28,6 +29,6 @@ export const Button = ({
                     <ArrowIcon />
                 </span>
             )}
-        </button>
+        </motion.button>
     );
 };

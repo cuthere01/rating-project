@@ -17,10 +17,31 @@
 
 .body {
     grid-area: body;
+    outline: none;
 }
 
 .footer {
     grid-area: footer;
+}
+
+.skipLink{
+    display: block;
+    background-color: var(--primary);
+    color: var(--white);
+    position: fixed;
+    padding: 0  ;
+    font-size: 12px;
+    border-radius: 5px;
+    overflow: hidden;
+    top: 30px;
+    left: 30px;
+    z-index: 10;
+    height: 0;
+}
+
+.show{
+    height: auto;
+    padding: 8px 16px;
 }
 
 @media (max-width: 768px) {
