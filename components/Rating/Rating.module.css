@@ -1,5 +1,8 @@
 .star {
-    padding: 0 3px;
+    padding: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .rating {
@@ -17,20 +20,10 @@
 .star svg {
     width: 21px;
     height: 21px;
-    transition: fill .05s ease-in-out;
+    
+    /* transition: fill .05s ease-in-out; */
 }
 
-/* .star:not(.filled) svg{
-    transition: all .2s ease;
-} */
-
-.star:first-of-type {
-    padding: 0 3px 0 0;
-}
-
-.star:last-of-type {
-    padding: 0 0 0 3px;
-}
 
 .ratingWrapper{
     position: relative;

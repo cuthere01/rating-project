@@ -30,6 +30,7 @@ export const Product = motion.create(forwardRef(({
             behavior: 'smooth',
             block: 'start'
         });
+        reviewRef.current?.focus();
     };
 
     const variantsReview = {
@@ -150,13 +151,13 @@ export const Product = motion.create(forwardRef(({
                 animate={isReviewOpened ? "visible" : "hidden"}
                 variants={variantsReview}
                 initial={"hidden"}
-                ref={reviewRef}
                 className={styles.reviewsWrapper}
             >
                 <Card
                     color="primary"
                     className={styles.reviews}
                     ref={reviewRef}
+                    tabIndex={isReviewOpened ? 0 : -1}
                 >
                     {product.reviews.map((r) => (
                         <div key={r._id}>
@@ -164,7 +165,7 @@ export const Product = motion.create(forwardRef(({
                             <Divider />
                         </div>
                     ))}
-                    <ReviewForm productId={product._id} />
+                    <ReviewForm productId={product._id} isOpened={isReviewOpened} />
                 </Card>
             </motion.div>
         </div>
