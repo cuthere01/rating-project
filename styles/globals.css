@@ -46,3 +46,10 @@ body {
     background-color: var(--gray-light); 
   }
 }
+
+.visuallyHidden{
+  height: 0;
+  width: 0;
+  position: absolute;
+  overflow: hidden;
+}

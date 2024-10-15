@@ -32,11 +32,10 @@ export const TopPageComponent = ({
             <div className={styles.title}>
                 {page.title && <Htag tag="h1">{page.title}</Htag>}
                 {products && (
-                    <Tag size="m" color="gray">
+                    <Tag size="m" color="gray" aria-label={products.length + " элементов"}>
                         {products.length}
                     </Tag>
                 )}
-                {/* <span className={styles.sort}>Сортировка</span> */}
                 <Sort sort={sort} setSort={setSort} />
             </div>
             {sortedProducts &&

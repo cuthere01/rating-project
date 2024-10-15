@@ -15,6 +15,7 @@ import { ForwardedRef, forwardRef, useRef, useState } from 'react';
 import { Review } from '../Review/Review';
 import { ReviewForm } from '../ReviewForm/ReviewForm';
 import { motion } from 'framer-motion';
+import { truncate } from 'fs/promises';
 
 export const Product = motion.create(forwardRef(({
     product,
@@ -59,20 +60,30 @@ export const Product = motion.create(forwardRef(({
                     {product.title}
                 </Htag>
                 <div className={styles.price}>
-                    {priceRu(product.price)}
+                    <span>
+                        <span className="visuallyHidden">цена</span>
+                        {priceRu(product.price)}
+                    </span>
                     {product.oldPrice && (
                         <Tag color="green" size="s" className={styles.oldPrice}>
+                            <span className="visuallyHidden">скидка</span>
                             {priceRu(product.price - product.oldPrice)}
                         </Tag>
                     )}
                 </div>
                 <div className={styles.credit}>
-                    {priceRu(product.credit)}
+                    <span>
+                        <span className="visuallyHidden">кредит</span>
+                        {priceRu(product.credit)}
+                    </span>
                     <span className={styles.month}>/мес</span>
                 </div>
                 <div className={styles.rating}>
                     {/* нужно продумать сортировку по рейтингу с отзывов и
                 изначальному рейтингу */}
+                    <span className="visuallyHidden">
+                        {"рейтинг " + product.initialRating}
+                    </span>
                     <Rating
                         // rating={product.reviewAvg ?? product.initialRating}
                         rating={product.initialRating}
@@ -86,8 +97,12 @@ export const Product = motion.create(forwardRef(({
                         </Tag>
                     ))}
                 </div>
-                <div className={styles.priceTitle}>цена</div>
-                <div className={styles.creditTitle}>кредит</div>
+                <div className={styles.priceTitle} area-hidden="true">
+                    цена
+                </div>
+                <div className={styles.creditTitle} area-hidden="true">
+                    кредит
+                </div>
                 <div className={styles.rateTitle}>
                     <a href="#ref" onClick={scrollIntoView}>
                         {product.reviewCount}{" "}
@@ -165,7 +180,10 @@ export const Product = motion.create(forwardRef(({
                             <Divider />
                         </div>
                     ))}
-                    <ReviewForm productId={product._id} isOpened={isReviewOpened} />
+                    <ReviewForm
+                        productId={product._id}
+                        isOpened={isReviewOpened}
+                    />
                 </Card>
             </motion.div>
         </div>

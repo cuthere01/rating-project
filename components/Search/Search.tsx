@@ -6,13 +6,13 @@ import { Button } from "../Button/Button";
 import { useState } from "react";
 import SearchIcon from "./search.svg";
 import { useRouter } from 'next/router';
-import { KeyboardEvent } from 'react';
 
 export const Search = ({ className, ...props }: SearchProps): JSX.Element => {
     const [search, setSearch] = useState<string>("");
     const router = useRouter();
 
     const goToSearch = (): void => {
+        
         router.push({
             pathname: '/search',
             query: {
@@ -21,28 +21,32 @@ export const Search = ({ className, ...props }: SearchProps): JSX.Element => {
         });
     };
 
-    const handleKeyDown = (e: KeyboardEvent): void => {
-        if(e.key == 'Enter'){
-            goToSearch();
-        }
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
+        e.preventDefault();
+        goToSearch();
     };
 
     return (
-        <div className={classNames(className, styles.search)} {...props}>
+        <form
+            className={classNames(className, styles.search)}
+            onSubmit={handleSubmit}
+            {...props}
+            role="search"
+        >
             <Input
                 className={styles.input}
                 placeholder="Поиск..."
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
-                onKeyDown={handleKeyDown}
             />
             <Button
                 appearance="primary"
                 className={styles.button}
-                onClick={goToSearch}
+                type="submit"
+                aria-label="Искать по сайту"
             >
                 <SearchIcon />
             </Button>
-        </div>
+        </form>
     );
 };
