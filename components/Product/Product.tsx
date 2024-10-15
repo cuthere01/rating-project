@@ -15,7 +15,6 @@ import { ForwardedRef, forwardRef, useRef, useState } from 'react';
 import { Review } from '../Review/Review';
 import { ReviewForm } from '../ReviewForm/ReviewForm';
 import { motion } from 'framer-motion';
-import { truncate } from 'fs/promises';
 
 export const Product = motion.create(forwardRef(({
     product,
@@ -157,6 +156,7 @@ export const Product = motion.create(forwardRef(({
                         appearance="ghost"
                         arrow={isReviewOpened ? "down" : "right"}
                         onClick={() => setIsReviewOpened((prev) => !prev)}
+                        aria-expanded={isReviewOpened}
                     >
                         Читать отзывы
                     </Button>
