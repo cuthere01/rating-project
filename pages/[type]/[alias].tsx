@@ -8,17 +8,28 @@ import { ProductModel } from "@/interfaces/products.interface";
 import { firstLvlMenu } from "@/helpers/helpers";
 import { TopPageComponent } from "@/page-components";
 import { API } from '@/helpers/api';
+import Head from 'next/head';
 
 function TopPage({ firstCategory, page, products }: TopPageProps): JSX.Element {
     if (!page || !page.title) {
         return <div>Page not found</div>;
     }
     return (
-        <TopPageComponent
-            firstCategory={firstCategory}
-            page={page}
-            products={products}
-        />
+        <>
+            <Head>
+                <title>{page.metaTitle}</title>
+                <meta name="description" content={page.metaDescription} />
+                <meta name="og:title" content={page.metaTitle} />
+                <meta name="og:description" content={page.metaDescription} />
+                <meta name="og:url" content={page.metaDescription} />
+                <meta name="og:type" content="article" />
+            </Head>
+            <TopPageComponent
+                firstCategory={firstCategory}
+                page={page}
+                products={products}
+            />
+        </>
     );
 }
 
