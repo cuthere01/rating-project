@@ -9,7 +9,7 @@ import { Htag } from '../Htag/Htag';
 import { declOfNum, priceRu } from '@/helpers/helpers';
 import { Divider } from '../Divider/Divider';
 import { P } from '../P/P'; 
-import Image from 'next/image';
+// import Image from 'next/image';
 import classNames from 'classnames';      
 import { ForwardedRef, forwardRef, useRef, useState } from 'react';
 import { Review } from '../Review/Review';
@@ -48,12 +48,20 @@ export const Product = motion.create(forwardRef(({
         <div className={className} ref={ref} {...props}>
             <Card className={styles.product}>
                 <div className={styles.logo}>
-                    <Image
+                    <img
                         src={product.image}
                         alt={product.title}
                         width={70}
                         height={70}
                     />
+                    
+                    {/* valid for non-static export */}
+                    {/* <Image
+                        src={product.image}
+                        alt={product.title}
+                        width={70}
+                        height={70}
+                    /> */}
                 </div>
                 <Htag tag="h3" className={styles.title}>
                     {product.title}
