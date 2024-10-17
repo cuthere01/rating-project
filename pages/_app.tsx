@@ -28,21 +28,25 @@ export default function App({ Component, pageProps, router }: AppProps): JSX.Ele
                     name="viewport"
                     content="width=device-width, initial-scale=1"
                 />
-                <link rel="icon" href="/favicon.ico" />
+                <link
+                    rel="icon"
+                    href={
+                        (process.env.NEXT_PUBLIC_IS_DEV === "true"
+                            ? ''
+                            : process.env.NEXT_PUBLIC_DOMAIN) + "/favicon.ico"
+                    }
+                />
                 <meta
                     property="og:url"
                     content={process.env.NEXT_PUBLIC_DOMAIN + router.asPath}
                 />
-                <meta
-                    property="og:locale"
-                    content="ru_RU"
-                />
+                <meta property="og:locale" content="ru_RU" />
                 <link rel="preconnect" href="https://mc.yandex.ru" />
             </Head>
-            <YMInitializer 
+            <YMInitializer
                 accounts={[]}
                 options={{ webvisor: true, defer: true }}
-                version='2'
+                version="2"
             />
             <div className={font.className}>
                 <Component {...pageProps} />
