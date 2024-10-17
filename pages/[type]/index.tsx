@@ -26,9 +26,11 @@ const Type = ({ firstCategory, menu }: TypeProps): JSX.Element => {
 export default withLayout(Type);
 
 export const getStaticPaths: GetStaticPaths = async () => {
+    const isDev = process.env.NEXT_PUBLIC_IS_DEV === "true";
+
     return {
         paths: firstLvlMenu.map((m) => `/${m.route}`),
-        fallback: false,
+        fallback: isDev ? true : false,
         // fallback: true,
     };
 };

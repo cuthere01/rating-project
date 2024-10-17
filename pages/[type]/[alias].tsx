@@ -47,6 +47,8 @@ export default withLayout(TopPage);
 
 export const getStaticPaths: GetStaticPaths = async () => {
     let paths: string[] = [];
+    const isDev = process.env.NEXT_PUBLIC_IS_DEV === "true";
+
     for (const m of firstLvlMenu) {
         const { data: menu } = await axios.post<MenuItem[]>(API.topPage.find, {
             firstCategory: m.id,
@@ -58,8 +60,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
     return {
         paths,
-        fallback: false,
-        // fallback: true,
+        fallback: isDev ? true : false,
     };
 };
 

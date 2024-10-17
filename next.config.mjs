@@ -1,7 +1,9 @@
 /** @type {import('next').NextConfig} */
+const isDev = process.env.NEXT_PUBLIC_IS_DEV === "true";
+
 const nextConfig = {
-    output: "export",
-    basePath: "/rating-project",
+    output: isDev ? undefined : "export",
+    basePath: isDev ? undefined : "/rating-project",
     reactStrictMode: true,
     images: {
         domains: ["old-images.hb.ru-msk.vkcs.cloud"],
