@@ -68,7 +68,9 @@ jobs:
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
       - name: Set environment variables
-        run: echo "NEXT_PUBLIC_API=https://courses-top.ru" >> $GITHUB_ENV
+        run: |
+          echo "NEXT_PUBLIC_API=${{ secrets.NEXT_PUBLIC_API }}" >> $GITHUB_ENV
+          echo "NEXT_PUBLIC_API=${{ secrets.NEXT_PUBLIC_DOMAIN }}" >> $GITHUB_ENV
       - name: Build with Next.js
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
       - name: Upload artifact
