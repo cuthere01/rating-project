@@ -14,6 +14,7 @@
 .sort {
     display: flex;
     gap: 10px 40px;
+    flex-wrap: wrap;
     align-items: center;
 }
 
