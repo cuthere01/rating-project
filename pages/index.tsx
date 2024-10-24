@@ -3,12 +3,14 @@ import { GetStaticProps } from "next";
 import axios from "axios";
 import { MenuItem } from "@/interfaces/menu.interface";
 import { API } from '@/helpers/api';
+import { firstLvlMenu } from '@/helpers/helpers';
+import { Slider } from '@/components';
 
-function Home(): JSX.Element {
-
+function Home({ menu }: HomeProps): JSX.Element {
     return (
         <>
             Главная страница
+            <Slider mainNav={firstLvlMenu} />
         </>
     );
 }
