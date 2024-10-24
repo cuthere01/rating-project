@@ -6,7 +6,7 @@ import { API } from '@/helpers/api';
 import { firstLvlMenu } from '@/helpers/helpers';
 import { Slider } from '@/components';
 
-function Home({ menu }: HomeProps): JSX.Element {
+function Home(): JSX.Element {
     return (
         <>
             Главная страница

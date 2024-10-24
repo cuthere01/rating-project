@@ -1,16 +1,22 @@
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import Head from "next/head";
-import { Noto_Sans } from "next/font/google";
+import { Noto_Sans, Rubik_Doodle_Shadow } from "next/font/google";
 import ym from 'react-yandex-metrika';
 import { YMInitializer } from "react-yandex-metrika";
 import Router from 'next/router';
 
-const font = Noto_Sans({
-    subsets: ["latin", "cyrillic"],
-    weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
-    variable: '--font-family'
-});
+// const font = Noto_Sans({
+//     subsets: ["latin", "cyrillic"],
+//     weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+//     variable: '--font-family'
+// });
+
+// const font1 = Rubik_Doodle_Shadow({
+//     subsets: ["latin", "cyrillic"],
+//     weight: ["400"],
+//     variable: "--font-family",
+// });
 
 Router.events.on("routeChangeComplete", (url: string) => {
     if (typeof window != "undefined") {
@@ -32,7 +38,7 @@ export default function App({ Component, pageProps, router }: AppProps): JSX.Ele
                     rel="icon"
                     href={
                         (process.env.NEXT_PUBLIC_IS_DEV === "true"
-                            ? ''
+                            ? ""
                             : process.env.NEXT_PUBLIC_DOMAIN) + "/favicon.ico"
                     }
                 />
@@ -48,9 +54,7 @@ export default function App({ Component, pageProps, router }: AppProps): JSX.Ele
                 options={{ webvisor: true, defer: true }}
                 version="2"
             />
-            <div className={font.className}>
-                <Component {...pageProps} />
-            </div>
+            <Component {...pageProps} />
         </>
     );
 }
