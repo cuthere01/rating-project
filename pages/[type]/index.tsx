@@ -8,6 +8,7 @@ import { useRouter } from "next/router";
 import { useContext, useEffect } from "react";
 import { AppContext } from "@/context/app.context";
 import { API } from '@/helpers/api';
+import { Slider } from '@/components';
 
 const Type = ({ firstCategory, menu }: TypeProps): JSX.Element => {
     const router = useRouter();
@@ -20,7 +21,17 @@ const Type = ({ firstCategory, menu }: TypeProps): JSX.Element => {
         }
     }, [router.asPath]);
 
-    return <div>Type: {firstCategory}</div>;
+    return (
+        <>
+            <div>{router.asPath}</div>
+            <div>Type: {firstCategory}</div>
+            {/* {menu.map(m => (<div>{m._id.secondCategory}<br/>{m.pages.map(p => (<span>{p.title}</span>))}</div>))} */}
+            <Slider
+                menuNav={menu}
+                type='secondLvl'
+            />
+        </>
+    );
 };
 
 export default withLayout(Type);

@@ -10,7 +10,7 @@ function Home(): JSX.Element {
     return (
         <>
             Главная страница
-            <Slider mainNav={firstLvlMenu} />
+            <Slider mainNav={firstLvlMenu} type='firstLvl' />
         </>
     );
 }
