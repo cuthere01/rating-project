@@ -1,7 +1,7 @@
 import { ButtonIcon } from '@/components';
 import { HeaderProps } from "./Header.props";
 import styles from "./Header.module.css";
-import Logo from "@/layout/cuthere-react-logo.svg";
+import Logo from "@/layout/cuthere-logo.svg";
 import classNames from 'classnames';
 import { motion, useReducedMotion } from 'framer-motion';
 import { Sidebar } from '../Sidebar/Sidebar';

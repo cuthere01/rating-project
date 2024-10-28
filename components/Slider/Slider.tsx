@@ -1,67 +1,93 @@
-import { SliderProps } from "./Slider.props";
-import styles from './Slider.module.css';
+import { SliderProps, PageWithCategory } from "./Slider.props";
+import styles from "./Slider.module.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import Link from 'next/link';
-import classNames from 'classnames';
+import Link from "next/link";
+import classNames from "classnames";
+import { useEffect, useState, ReactNode } from "react";
 
-export const Slider = ({ className, mainNav, menuNav, type, page }: SliderProps): JSX.Element => {
+export const Slider = ({
+    className,
+    mainNav,
+    menuNav,
+    type,
+    page,
+}: SliderProps): JSX.Element => {
+    const [randomPages, setRandomPages] = useState<PageWithCategory[]>([]);
+
+    useEffect(() => {
+        if (menuNav) {
+            const pages: PageWithCategory[] = menuNav
+                .flatMap((m) =>
+                    m.pages.map((p) => ({
+                        ...p,
+                        secondCategory: m._id.secondCategory,
+                    }))
+                )
+                .sort(() => Math.random() - 0.5)
+                .slice(0, 10);
+
+            setRandomPages(pages);
+        }
+    }, [menuNav]);
+
+    // Функция для рендера слайдов с типом возвращаемого значения ReactNode
+    const renderSwiperSlides = (): ReactNode => {
+        if (type === "firstLvl" && mainNav) {
+            return mainNav.map((m, i) => (
+                <SwiperSlide key={i}>
+                    <Link href={`/${m.route}`} className={styles.slide}>
+                        <h2 className={styles.title}>{m.name}</h2>
+                        {m.icon}
+                    </Link>
+                </SwiperSlide>
+            ));
+        }
+
+        if (type === "secondLvl" && randomPages.length > 0) {
+            return randomPages.map((p, j) => (
+                <SwiperSlide key={j}>
+                    <Link
+                        href={`${page && page}/${p.alias}`}
+                        className={styles.slide}
+                    >
+                        <h2 className={styles.titleSm}>{p.category}</h2>
+                        <p>{p.secondCategory}</p>
+                    </Link>
+                </SwiperSlide>
+            ));
+        }
+
+        return <p className={styles.placeholder}>Слайды отсутствуют</p>;
+    };
 
     return (
-        <>
-            {type && (
-                <Swiper
-                    className={classNames(className, styles.swiper)}
-                    spaceBetween={10}
-                    slidesPerView={1}
-                    loop={true}
-                    autoplay={{
-                        delay: 2500,
-                        disableOnInteraction: true,
-                    }}
-                    modules={[Pagination, Autoplay]}
-                    pagination={{
-                        clickable: true,
-                        bulletClass: styles.bullet,
-                        bulletActiveClass: styles.bulletActive,
-                    }}
-                    breakpoints={{
-                        768: {
-                            spaceBetween: 50,
-                            slidesPerView: 1,
-                        },
-                    }}
-                >
-                    {type === "firstLvl" &&
-                        mainNav?.map((m, i) => (
-                            <SwiperSlide key={i}>
-                                <Link
-                                    href={`/${m.route}`}
-                                    className={styles.slide}
-                                >
-                                    <h2 className={styles.title}>{m.name}</h2>
-                                    {m.icon}
-                                </Link>
-                            </SwiperSlide>
-                        ))
-                    }
-                    {type === "secondLvl" &&
-                        menuNav?.map((m, i) => (
-                            <SwiperSlide key={i}>
-                                <Link
-                                    href={`/`}
-                                    className={styles.slide}
-                                >
-                                    <h2 className={styles.title}>{m._id.secondCategory}</h2>
-                                </Link>
-                            </SwiperSlide>
-                        ))
-                    }
-                </Swiper>
-            )}
-        </>
+        <Swiper
+            className={classNames(className, styles.swiper)}
+            spaceBetween={10}
+            slidesPerView={1}
+            loop={randomPages.length > 1} // Условие для цикличности слайдера
+            autoplay={{
+                delay: 2500,
+                disableOnInteraction: true,
+            }}
+            modules={[Pagination, Autoplay]}
+            pagination={{
+                clickable: true,
+                bulletClass: styles.bullet,
+                bulletActiveClass: styles.bulletActive,
+            }}
+            breakpoints={{
+                1200: {
+                    spaceBetween: 30,
+                    slidesPerView: type === "secondLvl" ? 2 : 1,
+                },
+            }}
+        >
+            {renderSwiperSlides()}
+        </Swiper>
     );
 };

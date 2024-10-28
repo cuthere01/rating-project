@@ -26,10 +26,7 @@ const Type = ({ firstCategory, menu }: TypeProps): JSX.Element => {
             <div>{router.asPath}</div>
             <div>Type: {firstCategory}</div>
             {/* {menu.map(m => (<div>{m._id.secondCategory}<br/>{m.pages.map(p => (<span>{p.title}</span>))}</div>))} */}
-            <Slider
-                menuNav={menu}
-                type='secondLvl'
-            />
+            <Slider menuNav={menu} type="secondLvl" page={firstLvlMenu[firstCategory].route} />
         </>
     );
 };

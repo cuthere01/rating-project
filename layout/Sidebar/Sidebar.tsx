@@ -1,7 +1,7 @@
 import { SidebarProps } from "./Sidebar.props";
 import styles from "./Sidebar.module.css";
 import { Menu } from "../Menu/Menu";
-import Logo from "@/layout/cuthere-react-logo.svg";
+import Logo from "@/layout/cuthere-logo.svg";
 import classNames from "classnames";
 import { Search } from "@/components";
 import Link from 'next/link';

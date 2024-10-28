@@ -5,7 +5,7 @@
 }
 
 :root {
-    --black: #3b434e;
+    --text: #3b434e;
     --white: #fff;
     --white-darken: #f5f6f8;
     --primary: #7351f5;
@@ -17,7 +17,7 @@
     --green-light: #c8f8e4;
     --gray-light: #d2d2d2;
     --gray: #b3c0d9;
-    --gray-dark: #6c7077;
+    --text-lighten: #6c7077;
     --font-family: "Noto Sans", sans-serif;
     --font-1: "Rubik Doodle Shadow", "Noto Sans", sans-serif;
 }
@@ -26,8 +26,12 @@ html,
 body {
     overflow-x: hidden;
     font-family: var(--font-family);
-    color: var(--black);
+    color: var(--text);
     background: var(--white-darken);
+}
+
+body.red{
+  --primary: #f5516f;
 }
 
 @media (min-width: 768px){

@@ -28,6 +28,15 @@
     font-family: var(--font-1);
 }
 
+.titleSm{
+    font-size: 30px;
+    margin: 0;
+    font-weight: 500;
+    color: var(--primary);
+    font-family: var(--font-1);
+}
+
+
 .swiper :global(.swiper-pagination){
     position: relative;
     margin-top: 12px;

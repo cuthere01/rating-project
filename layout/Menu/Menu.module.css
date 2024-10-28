@@ -16,7 +16,7 @@
     gap: 20px;
     font-size: 18px;
     font-weight: 500;
-    color: var(--gray-dark);
+    color: var(--text-lighten);
     text-decoration: none;
     margin: 0;
 }
@@ -55,7 +55,7 @@
 .secondLvlLabel {
     font-size: 12px;
     font-weight: 300;
-    color: var(--gray-dark);
+    color: var(--text-lighten);
     margin: 0;
     text-transform: uppercase;
     cursor: pointer;
@@ -73,7 +73,7 @@
 .thirdLvl {
     font-size: 14px;
     font-weight: 500;
-    color: var(--gray-dark);
+    color: var(--text-lighten);
     margin: 0;
     text-decoration: none;
     display: block;
