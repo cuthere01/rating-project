@@ -17,3 +17,4 @@ export * from "./ReviewForm/ReviewForm";
 export * from "./Up/Up";
 export * from "./ButtonIcon/ButtonIcon";
 export * from "./Slider/Slider";
+export * from "./ThemeSwitcher/ThemeSwitcher";

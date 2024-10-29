@@ -3,7 +3,7 @@ import styles from "./Sidebar.module.css";
 import { Menu } from "../Menu/Menu";
 import Logo from "@/layout/cuthere-logo.svg";
 import classNames from "classnames";
-import { Search } from "@/components";
+import { Search, ThemeSwitcher } from "@/components";
 import Link from 'next/link';
 
 export const Sidebar = ({ className, ...props }: SidebarProps): JSX.Element => {
@@ -13,6 +13,7 @@ export const Sidebar = ({ className, ...props }: SidebarProps): JSX.Element => {
                 <Logo className={styles.logo} />
             </Link>
             <Search />
+            <ThemeSwitcher/>
             <Menu />
         </div>
     );
