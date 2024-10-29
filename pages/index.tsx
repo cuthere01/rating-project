@@ -4,14 +4,18 @@ import axios from "axios";
 import { MenuItem } from "@/interfaces/menu.interface";
 import { API } from '@/helpers/api';
 import { firstLvlMenu } from '@/helpers/helpers';
-import { Slider } from '@/components';
+import { Htag, P, Slider } from '@/components';
+import styles from './index.module.css';
 
 function Home(): JSX.Element {
     return (
-        <>
-            Главная страница
-            <Slider mainNav={firstLvlMenu} type='firstLvl' />
-        </>
+        <div className={styles.wrapper}>
+            <Htag tag="h1" className={styles.name}>Rating Project</Htag>
+            <P size="l" className={styles.desc}>База отзывов на все случаи жизни</P>
+            <div>
+                <Slider mainNav={firstLvlMenu} type="firstLvl" />
+            </div>
+        </div>
     );
 }
 

@@ -8,6 +8,7 @@ import "swiper/css/pagination";
 import Link from "next/link";
 import classNames from "classnames";
 import { useEffect, useState, ReactNode } from "react";
+import { P } from '../P/P';
 
 export const Slider = ({
     className,
@@ -34,7 +35,6 @@ export const Slider = ({
         }
     }, [menuNav]);
 
-    // Функция для рендера слайдов с типом возвращаемого значения ReactNode
     const renderSwiperSlides = (): ReactNode => {
         if (type === "firstLvl" && mainNav) {
             return mainNav.map((m, i) => (
@@ -51,7 +51,7 @@ export const Slider = ({
             return randomPages.map((p, j) => (
                 <SwiperSlide key={j}>
                     <Link
-                        href={`${page && page}/${p.alias}`}
+                        href={`${page && page.route}/${p.alias}`}
                         className={styles.slide}
                     >
                         <h2 className={styles.titleSm}>{p.category}</h2>
@@ -61,7 +61,11 @@ export const Slider = ({
             ));
         }
 
-        return <p className={styles.placeholder}>Слайды отсутствуют</p>;
+        return (
+            <P size='l'>
+                В настоящий момент отзывы в категории <span className={styles.lowerCase}>{page && page.name}</span> отсутствуют
+            </P>
+        );
     };
 
     return (

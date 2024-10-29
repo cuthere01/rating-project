@@ -9,24 +9,28 @@ export const firstLvlMenu: FirstLevelMenuItem[] = [
     {
         route: "courses",
         name: "Курсы",
+        desc: "Узнайте, что говорят о лучших онлайн-курсах для профессионального и личного развития",
         icon: <CoursesIcon />,
         id: TopLevelCategory.Courses,
     },
     {
         route: "services",
         name: "Сервисы",
+        desc: "Честные отзывы о популярных сервисах, которые помогают решать повседневные задачи",
         icon: <ServicesIcon />,
         id: TopLevelCategory.Services,
     },
     {
         route: "books",
         name: "Книги",
+        desc: "Подборка отзывов на книги разных жанров для вашего вдохновения и роста",
         icon: <BooksIcon />,
         id: TopLevelCategory.Books,
     },
     {
         route: "products",
         name: "Товары",
+        desc: "Обзор и оценки востребованных товаров для обоснованного выбора",
         icon: <ProductsIcon />,
         id: TopLevelCategory.Products,
     },

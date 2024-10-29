@@ -27,6 +27,6 @@ export interface SliderProps
     extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
     mainNav?: FirstLevelMenuItem[];
     menuNav?: MenuItem[];
-    page?: string;
+    page?: FirstLevelMenuItem;
     type: "firstLvl" | "secondLvl" | null;
 }

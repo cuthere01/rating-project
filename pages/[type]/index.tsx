@@ -8,25 +8,33 @@ import { useRouter } from "next/router";
 import { useContext, useEffect } from "react";
 import { AppContext } from "@/context/app.context";
 import { API } from '@/helpers/api';
-import { Slider } from '@/components';
+import { Htag, P, Slider } from '@/components';
+import styles from './type.module.css';
 
 const Type = ({ firstCategory, menu }: TypeProps): JSX.Element => {
     const router = useRouter();
     const { setMenu } = useContext(AppContext);
 
-    // Используем useEffect для обновления меню при изменении роута
     useEffect(() => {
         if (setMenu) {
             setMenu(menu);
         }
     }, [router.asPath]);
 
+    console.log(firstLvlMenu[firstCategory]);
     return (
         <>
-            <div>{router.asPath}</div>
-            <div>Type: {firstCategory}</div>
-            {/* {menu.map(m => (<div>{m._id.secondCategory}<br/>{m.pages.map(p => (<span>{p.title}</span>))}</div>))} */}
-            <Slider menuNav={menu} type="secondLvl" page={firstLvlMenu[firstCategory].route} />
+            <Htag tag="h1" className={styles.name}>
+                {firstLvlMenu[firstCategory].name}
+            </Htag>
+            <P size="l" className={styles.desc}>
+                {firstLvlMenu[firstCategory].desc}
+            </P>
+            <Slider
+                menuNav={menu}
+                type="secondLvl"
+                page={firstLvlMenu[firstCategory]}
+            />
         </>
     );
 };
