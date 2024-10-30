@@ -7,7 +7,6 @@ import { FunctionComponent, useRef, useState, KeyboardEvent } from "react";
 import { AppContextProvider, IAppContext } from "@/context/app.context";
 import { Up } from "@/components";
 import classNames from "classnames";
-import { IThemeContext, ThemeContextProvider } from '@/context/theme.context';
 
 const Layout = ({ children }: LayoutProps): JSX.Element => {
     const [isSkipLinkShow, setIsSkipLinkShow] = useState<boolean>(false);
@@ -42,21 +41,19 @@ const Layout = ({ children }: LayoutProps): JSX.Element => {
     );
 };
 
-export const withLayout = <T extends Record<string, unknown> & IAppContext & IThemeContext >(
+export const withLayout = <T extends Record<string, unknown> & IAppContext >(
     Component: FunctionComponent<T>
 ) => {
     return function withLayoutComponent(props: T): JSX.Element {
         return (
-            <ThemeContextProvider theme={props.theme}>
-                <AppContextProvider
-                    menu={props.menu}
-                    firstCategory={props.firstCategory}
-                >
-                    <Layout>
-                        <Component {...props} />
-                    </Layout>
-                </AppContextProvider>
-            </ThemeContextProvider>
+            <AppContextProvider
+                menu={props.menu}
+                firstCategory={props.firstCategory}
+            >
+                <Layout>
+                    <Component {...props} />
+                </Layout>
+            </AppContextProvider>
         );
     };
 };

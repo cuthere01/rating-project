@@ -5,6 +5,7 @@ import { Noto_Sans, Rubik_Doodle_Shadow } from "next/font/google";
 import ym from 'react-yandex-metrika';
 import { YMInitializer } from "react-yandex-metrika";
 import Router from 'next/router';
+import { IThemeContext, ThemeContextProvider } from '@/context/theme.context';
 
 // const font = Noto_Sans({
 //     subsets: ["latin", "cyrillic"],
@@ -25,7 +26,7 @@ Router.events.on("routeChangeComplete", (url: string) => {
 });
 
 export default function App({ Component, pageProps, router }: AppProps): JSX.Element {
-    
+    const { theme } = pageProps as IThemeContext;
     return (
         <>
             <Head>
@@ -54,7 +55,9 @@ export default function App({ Component, pageProps, router }: AppProps): JSX.Ele
                 options={{ webvisor: true, defer: true }}
                 version="2"
             />
-            <Component {...pageProps} />
+            <ThemeContextProvider theme={theme}>
+                <Component {...pageProps} />
+            </ThemeContextProvider>
         </>
     );
 }
