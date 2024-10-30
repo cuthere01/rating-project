@@ -1,20 +1,14 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import styles from "./ThemeSwitcher.module.css";
 import { Button } from '../Button/Button';
-
-const themes = {
-    default: "",
-    red: "red",
-    green: "green",
-    blue: "blue",
-    yellow: "yellow",
-    purple: "purple",
-};
+import { useTheme } from '@/context/theme.context';
+import { themes } from "@/helpers/helpers";
 
 type ThemeKey = keyof typeof themes;
 
+
 export const ThemeSwitcher = (): JSX.Element => {
-    const [theme, setTheme] = useState<ThemeKey>("default");
+    const { theme, setTheme } = useTheme();
 
     useEffect(() => {
         Object.values(themes).forEach((themeClass) => {
@@ -24,7 +18,7 @@ export const ThemeSwitcher = (): JSX.Element => {
     }, [theme]);
 
     const switchTheme = (newTheme: ThemeKey): void => {
-        setTheme(newTheme);
+        if (setTheme) setTheme(newTheme);
     };
 
     return (

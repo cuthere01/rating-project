@@ -21,7 +21,6 @@ const Type = ({ firstCategory, menu }: TypeProps): JSX.Element => {
         }
     }, [router.asPath]);
 
-    console.log(firstLvlMenu[firstCategory]);
     return (
         <>
             <Htag tag="h1" className={styles.name}>

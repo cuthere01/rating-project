@@ -36,6 +36,15 @@ export const firstLvlMenu: FirstLevelMenuItem[] = [
     },
 ];
 
+export const themes = {
+    default: "",
+    red: "red",
+    green: "green",
+    blue: "blue",
+    yellow: "yellow",
+    purple: "purple",
+};
+
 export const priceRu = (price: number): string => {
     return price
         .toString()
